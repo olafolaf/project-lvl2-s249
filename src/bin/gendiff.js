@@ -9,6 +9,4 @@ program
   .arguments('<firstConfig> <secondConfig>')
   .parse(process.argv);
 
-  console.log(program);
- 
-  
+console.log(program);
