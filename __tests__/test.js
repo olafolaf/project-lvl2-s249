@@ -16,3 +16,11 @@ test('compare yaml', () => {
   const difference = fs.readFileSync(pathToDifference, 'utf8');
   expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
 });
+
+test('compare ini', () => {
+  const pathToBefore = '__tests__/__fixtures__/before.ini';
+  const pathToAfter = '__tests__/__fixtures__/after.ini';
+  const pathToDifference = '__tests__/__fixtures__/difference';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
+});
