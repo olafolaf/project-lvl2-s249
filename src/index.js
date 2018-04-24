@@ -15,7 +15,8 @@ export default (path1, path2) => {
   const file2 = fs.readFileSync(path2, 'utf8');
   const obj1 = parse(file1);
   const obj2 = parse(file2);
-  const keys = _.union([...Object.keys(obj1), ...Object.keys(obj2)]);
+  const keys = _.union(_.keys(obj1), _.keys(obj2));
+
   const result = keys.reduce((acc, key) => {
     if (obj1[key] === obj2[key]) {
       return [...acc, `    ${key}: ${obj1[key]}`];
@@ -30,4 +31,3 @@ export default (path1, path2) => {
   }, []);
   return `{\n${result.join('\n')}\n}`;
 };
-
