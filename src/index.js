@@ -17,17 +17,18 @@ export default (path1, path2) => {
   const obj2 = parse(file2);
   const keys = _.union(_.keys(obj1), _.keys(obj2));
 
-  const result = keys.reduce((acc, key) => {
+  const result = keys.map((key) => {
     if (obj1[key] === obj2[key]) {
-      return [...acc, `    ${key}: ${obj1[key]}`];
+      return `    ${key}: ${obj1[key]}`;
     }
     if (_.has(obj1, key) && _.has(obj2, key)) {
-      return [...acc, `  + ${key}: ${obj2[key]}`, `  - ${key}: ${obj1[key]}`];
+      return [`  + ${key}: ${obj2[key]}`, `  - ${key}: ${obj1[key]}`];
     }
     if (_.has(obj1, key) && !_.has(obj2, key)) {
-      return [...acc, `  - ${[key]}: ${obj1[key]}`];
+      return `  - ${[key]}: ${obj1[key]}`;
     }
-    return [...acc, `  + ${key}: ${obj2[key]}`];
-  }, []);
-  return `{\n${result.join('\n')}\n}`;
+    return `  + ${key}: ${obj2[key]}`;
+  });
+  return `{\n${_.flatten(result).join('\n')}\n}`;
 };
+
