@@ -24,3 +24,11 @@ test('compare ini', () => {
   const difference = fs.readFileSync(pathToDifference, 'utf8');
   expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
 });
+
+test('compare json2', () => {
+  const pathToBefore = '__tests__/__fixtures__/before2.json';
+  const pathToAfter = '__tests__/__fixtures__/after2.json';
+  const pathToDifference = '__tests__/__fixtures__/difference2';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
+});
