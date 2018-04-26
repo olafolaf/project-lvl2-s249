@@ -32,3 +32,19 @@ test('compare json2', () => {
   const difference = fs.readFileSync(pathToDifference, 'utf8');
   expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
 });
+
+test('compare ini2', () => {
+  const pathToBefore = '__tests__/__fixtures__/before2.ini';
+  const pathToAfter = '__tests__/__fixtures__/after2.ini';
+  const pathToDifference = '__tests__/__fixtures__/difference2';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
+});
+
+test('compare yaml2', () => {
+  const pathToBefore = '__tests__/__fixtures__/before2.yaml';
+  const pathToAfter = '__tests__/__fixtures__/after2.yaml';
+  const pathToDifference = '__tests__/__fixtures__/difference2';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
+});
