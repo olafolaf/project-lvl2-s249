@@ -48,3 +48,19 @@ test('compare yaml2', () => {
   const difference = fs.readFileSync(pathToDifference, 'utf8');
   expect(genDiff(pathToBefore, pathToAfter)).toBe(difference);
 });
+
+test('compare json plain', () => {
+  const pathToBefore = '__tests__/__fixtures__/before.json';
+  const pathToAfter = '__tests__/__fixtures__/after.json';
+  const pathToDifference = '__tests__/__fixtures__/difference1_plain';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter, 'plain')).toBe(difference);
+});
+
+test('compare json2 plain', () => {
+  const pathToBefore = '__tests__/__fixtures__/before2.json';
+  const pathToAfter = '__tests__/__fixtures__/after2.json';
+  const pathToDifference = '__tests__/__fixtures__/difference2_plain';
+  const difference = fs.readFileSync(pathToDifference, 'utf8');
+  expect(genDiff(pathToBefore, pathToAfter, 'plain')).toBe(difference);
+});
