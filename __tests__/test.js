@@ -85,16 +85,3 @@ test('compare yaml2', () => {
   expect(genDiff(pathToBefore, pathToAfter, 'json')).toBe(differenceJson);
 });
 
-test('compare json2 plain', () => {
-  const pathToBefore = '__tests__/__fixtures__/before2.json';
-  const pathToAfter = '__tests__/__fixtures__/after2.json';
-  const pathToDifference = '__tests__/__fixtures__/difference2_plain';
-  const pathToDifferencePlain = '__tests__/__fixtures__/difference2_plain';
-  const pathToDifferenceJson = '__tests__/__fixtures__/difference2_json';
-  const difference = fs.readFileSync(pathToDifference, 'utf8');
-  const differencePlain = fs.readFileSync(pathToDifferencePlain, 'utf8');
-  const differenceJson = fs.readFileSync(pathToDifferenceJson, 'utf8');
-  expect(genDiff(pathToBefore, pathToAfter, 'plain')).toBe(difference);
-  expect(genDiff(pathToBefore, pathToAfter, 'plain')).toBe(differencePlain);
-  expect(genDiff(pathToBefore, pathToAfter, 'json')).toBe(differenceJson);
-});
