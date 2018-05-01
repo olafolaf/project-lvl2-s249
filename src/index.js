@@ -24,11 +24,11 @@ export default (path1, path2, format = 'general') => {
           act: value => ({ type: 'unchanged', value }),
         },
         {
-          check: () => data1[key] && !data2[key],
+          check: () => !_.has(data2, key),
           act: value => ({ type: 'deleted', value }),
         },
         {
-          check: () => !data1[key] && data2[key],
+          check: () => !_.has(data1, key),
           act: (noValue, value) => ({ type: 'added', value }),
         },
         {
